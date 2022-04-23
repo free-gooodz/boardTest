@@ -1,0 +1,5 @@
+2022-04-22 01:24:51 [WARN ] com.zaxxer.hikari.pool.HikariPool - HikariPool-2 - Thread starvation or clock leap detected (housekeeper delta=3h30s68ms932µs600ns).
+2022-04-22 09:35:42 [WARN ] com.zaxxer.hikari.pool.HikariPool - HikariPool-2 - Thread starvation or clock leap detected (housekeeper delta=8h10m53s741ms623µs499ns).
+2022-04-22 09:35:49 [INFO ] o.s.b.a.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin - Application shutdown requested.
+2022-04-22 09:35:50 [INFO ] com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Shutdown initiated...
+2022-04-22 09:35:50 [INFO ] com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Shutdown completed.

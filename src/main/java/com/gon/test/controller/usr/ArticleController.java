@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.gon.test.dto.Article;
 import com.gon.test.service.ArticleService;
@@ -15,13 +16,28 @@ import com.gon.test.service.ArticleService;
 public class ArticleController {
 	@Autowired
 	ArticleService articleService;
-	@RequestMapping("/usr/board/list")
+	
+	@RequestMapping("/usr/article/list")
 	public String showList(Model model) {
 		List<Article> articles = articleService.getArticles();
-//		boards.add(new Board(1, "2022-04-21 14:16:00", "2022-04-21 14:16:00", "제목3", "내용3"));
-//		boards.add(new Board(2, "2022-04-21 14:16:00", "2022-04-21 14:16:00", "제목3", "내용3"));
 		
 		model.addAttribute("articles", articles);
 		return "usr/board/list";
+	}
+	
+	@RequestMapping("/usr/article/detail")
+	public String showDetail(Model model, int id) {
+		Article article = articleService.getArticleById(id);
+		
+		model.addAttribute("article", article);
+		return "usr/board/detail";
+	}
+	
+	@RequestMapping("/usr/article/doDelete")
+	@ResponseBody
+	public String doDelete(int id) {
+		articleService.deleteArticleById(id);
+		
+		return String.format("<script> alert('%d번 글이 삭제 되었습니다.'); location.replace('/usr/article/list'); </script>", id);
 	}
 }
